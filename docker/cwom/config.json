@@ -1,0 +1,10 @@
+{
+    "localport":3000,
+    "https":true,
+    "cwom_config": {
+        "turboserver": "<turbonomics-url>",
+        "username": "<turbonomics-user>",
+        "password": "<turbonomics-pass>"
+    }
+
+}

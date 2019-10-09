@@ -1,4 +1,8 @@
 var config	= require("../config.json");
+config.cwom_config.turboserver=process.env.TURBO_URL;
+config.cwom_config.username=process.env.TURBO_USER;
+config.cwom_config.password=process.env.TURBO_PASS;
+
 var dashboards	= require("../dashboards.json");
 var libraries = require("../public-libraries.json");
 
@@ -138,9 +142,9 @@ exports.getLibraries = function(){
 exports.getCWOMConfig = function(){
 	if(!config.cwom_config) {
 		config.cwom_config =  {
-			"turboserver": "https://my.turbo.server.com",
-			"username": "<username>",
-			"password": "<password>",
+			"turboserver": process.env.TURBO_URL,
+			"username": process.env.TURBO_USER,
+			"password": process.env.TURBO_PASS,
 			"uuid": "<uuid>",
 			"vmUUids":[ "<string array of vmUUIDs>" ]
 		};
