@@ -2,28 +2,28 @@ version: '2'
 
 services:
 
-  agent-repo:
-    image: agent-repo
-    container_name: agent-repo
-    restart: always
-    volumes:
+#  agent-repo:
+#    image: agent-repo
+#    container_name: agent-repo
+#    restart: always
+#    volumes:
 #      - java-agent-volume:/sharedFiles/AppServerAgent
-      - machine-agent-volume:/sharedFiles/MachineAgent
+#      - machine-agent-volume:/sharedFiles/MachineAgent
 
-  machine-agent:
-    container_name: machine-agent
-    hostname: machine-agent
-    image: machine-agent
-    env_file: controller.env
-    volumes:
-      - /etc/localtime:/etc/localtime:ro
-      - /var/run/docker.sock:/var/run/docker.sock
-      - /:/hostroot:ro
-      - machine-agent-volume:/shared/machine-agent
-    expose:
-      - 9090
-    depends_on:
-      - agent-repo
+#  machine-agent:
+#    container_name: machine-agent
+#    hostname: machine-agent
+#    image: machine-agent
+#    env_file: controller.env
+#    volumes:
+#      - /etc/localtime:/etc/localtime:ro
+#      - /var/run/docker.sock:/var/run/docker.sock
+#      - /:/hostroot:ro
+#      - machine-agent-volume:/shared/machine-agent
+#    expose:
+#      - 9090
+#    depends_on:
+#      - agent-repo
 
   cwom-integration:
     image: cwom-integration:latest
@@ -42,6 +42,6 @@ services:
       - '3000:3000'
 #     volumes_from:
 #       - agent-repo:ro
-volumes:
+#volumes:
 #  java-agent-volume:
-  machine-agent-volume:
+#  machine-agent-volume:
